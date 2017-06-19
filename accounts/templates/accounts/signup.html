@@ -2,8 +2,8 @@
 
 <h2>Sign up</h2>
 
-{% if error %}
-  {{error}}
+{% if message %}
+  {{message}}
 {% endif %}
 
 <form action="{% url 'signup' %}" method="POST">
