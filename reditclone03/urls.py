@@ -16,6 +16,9 @@ Including another URLconf
 from django.conf.urls import url
 from django.contrib import admin
 
+from accounts import views as accoutns_views
+
 urlpatterns = [
     url(r'^admin/', admin.site.urls),
+    url(r'^signup/', accoutns_views.signup, name = 'signup'),
 ]
