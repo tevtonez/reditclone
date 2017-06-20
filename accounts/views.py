@@ -2,7 +2,7 @@ from django.shortcuts import render
 from django.contrib.auth.models import User
 from django.contrib.auth import authenticate, login
 
-# Create your views here.
+
 
 def signup(request):
 
@@ -37,9 +37,29 @@ def signup(request):
 
     else:
       message = "Passwords didn't match!"
-      return render(request, 'accounts/signup.html', {
-        'message' : message,
-      })
+      return render(request, 'accounts/signup.html', {'message' : message,})
 
   else:
     return render(request, 'accounts/signup.html')
+
+
+
+def usrlogin(request):
+
+  message = None
+
+  if request.method == "POST":
+    username = request.POST['username']
+    password = request.POST['password']
+    user = authenticate(username = username, password = password)
+
+    if user is not None:
+      login(request, user)
+      message = "Logged in successfull!"
+      return render(request, 'accounts/login.html', {'message' : message,})
+    else:
+      message = "The user name and password didn't match."
+      return render(request, 'accounts/login.html', {'message' : message,})
+  else:
+    return render(request, 'accounts/login.html')
+

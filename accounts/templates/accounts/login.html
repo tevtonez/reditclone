@@ -1,0 +1,20 @@
+{% load static %}
+
+<h2>Login</h2>
+
+{% if message %}
+  {{message}}
+{% endif %}
+
+<form action="{% url 'login' %}" method="POST">
+  {% csrf_token %}
+  <p>
+    <label for="username_field">Username:</label>
+    <input type="text" name="username" id="username_field" />
+  </p>
+  <p>
+    <label for="pass1">Password:</label>
+   <input type="password" name="password" id="pass" />
+  </p>
+  <input type="submit" value="Login">
+</form>
