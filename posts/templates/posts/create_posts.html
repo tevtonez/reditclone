@@ -1,1 +1,15 @@
-<h1>Create post</h1>
+<h1>Create new post</h1>
+
+<form action="{% url 'posts:create' %}" method="POST">
+  {% csrf_token %}
+
+  <p>
+    <label for="username_field">Title:</label>
+    <input type="text" name="title" id="new_post_title_field" />
+  </p>
+  <p>
+    <label for="pass1">Url:</label>
+   <input type="text" name="url" id="new_post_url_field" />
+  </p>
+  <input type="submit" value="Post">
+</form>
