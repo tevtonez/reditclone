@@ -17,9 +17,11 @@ from django.conf.urls import url, include
 from django.contrib import admin
 
 from accounts import views as accoutns_views
+from posts import views as posts_views
 
 urlpatterns = [
     url(r'^admin/', admin.site.urls),
     url(r'^accounts/', include('accounts.urls')),
     url(r'^posts/', include('posts.urls')),
+    url(r'^$', posts_views.home, name = 'home'),
 ]

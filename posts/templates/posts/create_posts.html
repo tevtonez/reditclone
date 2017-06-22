@@ -1,5 +1,9 @@
 <h1>Create new post</h1>
 
+{% if message %}
+  {{message}}
+{% endif %}
+
 <form action="{% url 'posts:create' %}" method="POST">
   {% csrf_token %}
 
