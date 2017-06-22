@@ -1,4 +1,4 @@
-from django.shortcuts import render
+from django.shortcuts import render, redirect
 from django.contrib.auth.models import User
 from django.contrib.auth import authenticate, login
 
@@ -55,6 +55,11 @@ def usrlogin(request):
 
     if user is not None:
       login(request, user)
+
+      # redirect users from @login_required views
+      if 'next' in request.POST:
+        return redirect(request.POST["next"])
+
       message = "Logged in successfull!"
       return render(request, 'accounts/login.html', {'message' : message,})
     else:
