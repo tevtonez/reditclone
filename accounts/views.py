@@ -1,6 +1,6 @@
 from django.shortcuts import render, redirect
 from django.contrib.auth.models import User
-from django.contrib.auth import authenticate, login
+from django.contrib.auth import authenticate, login, logout
 
 
 
@@ -61,10 +61,16 @@ def usrlogin(request):
         return redirect(request.POST["next"])
 
       message = "Logged in successfull!"
-      return render(request, 'accounts/login.html', {'message' : message,})
+      return redirect('home')
     else:
       message = "The user name and password didn't match."
       return render(request, 'accounts/login.html', {'message' : message,})
   else:
     return render(request, 'accounts/login.html')
 
+
+
+def usrlogout(request):
+  if request.method == "POST":
+    logout(request)
+    return redirect('home')
