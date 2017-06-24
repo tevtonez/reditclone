@@ -1,5 +1,6 @@
-{% load static %}
+{% extends 'base.html' %}
 
+{% block content %}
 <h2>Login</h2>
 
 {% if message %}
@@ -23,3 +24,5 @@
   </p>
   <input type="submit" value="Login">
 </form>
+
+{% endblock %}
