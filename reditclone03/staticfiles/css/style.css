@@ -1,0 +1,20 @@
+/*
+@author: Konstantin C.
+created: Jun 24 2017
+@author URL: www.octogear.com
+*/
+
+
+
+
+/* POSTS ON HOME PAGE */
+
+.vote-button-wrapper{
+  max-width: 60px !important;
+  padding-right: 0;
+  text-align: center;
+}
+
+.vote-button-wrapper h3.post-title{
+  margin: 5px 0;
+}

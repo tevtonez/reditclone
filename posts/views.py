@@ -1,6 +1,7 @@
 from django.shortcuts import render, redirect
 from django.contrib.auth.decorators import login_required
 from django.utils import timezone
+from django.contrib.auth.models import User
 
 from .models import Post
 
@@ -48,3 +49,13 @@ def downvote(request, pk):
     post.rating -= 1
     post.save()
     return redirect('home')
+
+
+def author(request, pk):
+  author = User.objects.get(pk = pk)
+  posts = Post.objects.filter(author = author).order_by('-rating')
+
+  return render(request, 'posts/author.html',{
+    'author' : author,
+    'posts' : posts,
+    })

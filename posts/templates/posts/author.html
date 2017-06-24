@@ -2,12 +2,9 @@
 
 {% block content %}
 <div class="col-xs-12">
-<h2>REDIT CLONE</h2>
+<h2>All <strong>{{author}}'s</strong> posts</h2>
 </div>
 
-<div class="col-xs-12 create-post-wrapper">
-  <a class="btn btn-primary" href="{% url 'posts:create' %}">Create post</a>
-</div>
 
 <div class="col-xs-12 url-wrapper">
   {% for post in posts.all %}
@@ -33,7 +30,7 @@
       </div>
       <div class="col-xs-11">
         <h3 class="post-title"><a href=" {{ post.url }} " target="_blanc">{{post.title}}</a></h3>
-        <p>{{post.pub_date_pretify}}, by  <a href=" {% url 'posts:author' post.author.pk %} ">{{post.author}}</a></p>
+        <p>{{post.pub_date_pretify}}</p>
       </div>
     </div>
 {% endfor %}
